@@ -1,0 +1,15 @@
+version: '3.4'
+
+services:
+  demomicroservices:
+    image: ${DOCKER_REGISTRY-}demomicroservices
+    build:
+      context: .
+      dockerfile: DemoMicroServices/Dockerfile
+
+  demootherapplication:
+    image: ${DOCKER_REGISTRY-}demootherapplication
+    build:
+      context: .
+      dockerfile: DemoOtherApplication/Dockerfile
+
