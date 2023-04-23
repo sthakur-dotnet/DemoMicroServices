@@ -1,4 +1,4 @@
-﻿namespace DemoOtherApplication.Models;
+﻿namespace ProductServices.Models;
 
 public enum ProductType
 {

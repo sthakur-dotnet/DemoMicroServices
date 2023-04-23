@@ -1,8 +1,8 @@
-using DemoMicroServices.Model;
-using DemoOtherApplication.Models;
+using ProductServices.Models;
+using InventoryServices.Model;
 using Microsoft.AspNetCore.Mvc;
 
-namespace DemoMicroServices.Controllers;
+namespace InventoryServices.Controllers;
 [ApiController]
 [Route("[controller]")]
 public class InventoryController : ControllerBase

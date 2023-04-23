@@ -1,5 +1,5 @@
 
-using DemoMicroServices.Model;
+using InventoryServices.Model;
 
 var builder = WebApplication.CreateBuilder(args);
 

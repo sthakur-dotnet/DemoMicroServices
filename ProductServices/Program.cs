@@ -1,6 +1,6 @@
-using DemoOtherApplication.Models;
+using ProductServices.Models;
 
-namespace DemoOtherApplication;
+namespace ProductServices;
 
 public class Program
 {

@@ -1,4 +1,4 @@
-﻿namespace DemoMicroServices.Model;
+﻿namespace InventoryServices.Model;
 
 public class Inventory
 {

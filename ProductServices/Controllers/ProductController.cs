@@ -1,7 +1,7 @@
-using DemoOtherApplication.Models;
 using Microsoft.AspNetCore.Mvc;
+using ProductServices.Models;
 
-namespace DemoOtherApplication.Controllers;
+namespace ProductServices.Controllers;
 [ApiController]
 [Route("[controller]")]
 public class ProductController : ControllerBase
