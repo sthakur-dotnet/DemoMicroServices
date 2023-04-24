@@ -1,5 +1,8 @@
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using ProductServices.Command;
 using ProductServices.Models;
+using ProductServices.Query;
 
 namespace ProductServices.Controllers;
 [ApiController]
@@ -7,26 +10,27 @@ namespace ProductServices.Controllers;
 public class ProductController : ControllerBase
 {
     private readonly ILogger<ProductController> _logger;
-    private readonly List<Product> _products;
+    private readonly IMediator _mediator;
 
-    public ProductController(ILogger<ProductController> logger,List<Product> products)
+    public ProductController(ILogger<ProductController> logger,IMediator mediator)
     {
         _logger = logger;
-        _products = products;
+        _mediator = mediator;
     }
 
     [HttpGet]
     [Route("get-all-product")]
-    public List<Product> GetAllProduct()
+    public Task<List<Product>> GetAllProduct()
     {
-        return _products;
+        return _mediator.Send(new GetAllProductQuery());
     }
 
     [HttpPost]
     [Route("add-product")]
-    public ObjectResult AddProduct(Product product)
+    public Task<Product> AddProduct(Product product)
     {
-        _products.Add(product);
-        return new ObjectResult(product);
+        return _mediator.Send(new SaveProductCommand(product));
     }
 }
+
+

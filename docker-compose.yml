@@ -1,15 +1,15 @@
 version: '3.4'
 
 services:
-  demomicroservices:
-    image: ${DOCKER_REGISTRY-}demomicroservices
+  inventoryservices:
+    image: ${DOCKER_REGISTRY-}inventoryservices
     build:
       context: .
-      dockerfile: DemoMicroServices/Dockerfile
+      dockerfile: InventoryServices/Dockerfile
 
-  demootherapplication:
-    image: ${DOCKER_REGISTRY-}demootherapplication
+  productservices:
+    image: ${DOCKER_REGISTRY-}productservices
     build:
       context: .
-      dockerfile: DemoOtherApplication/Dockerfile
+      dockerfile: ProductServices/Dockerfile
 

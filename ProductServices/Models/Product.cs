@@ -2,9 +2,8 @@
 
 public class Product
 {
-    public int Id { get; set; }
-    public string? Name { get; set; }
+    public int? Id { get; set; }
+    public string? Name { get; init; }
     public string? Description { get; set; }
-    public decimal Price { get; set; } = 0;
-    public ProductType ProductType { get; set; }
+    public decimal Price { get; init; }
 }

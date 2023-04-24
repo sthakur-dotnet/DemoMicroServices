@@ -1,3 +1,4 @@
+using System.Reflection;
 using ProductServices.Models;
 
 namespace ProductServices;
@@ -16,28 +17,29 @@ public class Program
             new Product
             {
                 Id = 1,
-                Description = "Test",
-                Name = "Test",
-                Price = 1,
-                ProductType=ProductType.Electrical
+                Description = "Test1",
+                Name = "Test2",
+                Price = 10,
             },
             new Product
             {
                 Id = 2,
-                Description = "Test",
-                Name = "Test",
-                Price = 1,
-                ProductType=ProductType.Electrical
+                Description = "Test1",
+                Name = "Test2",
+                Price = 20,
             }
         });
-
+        builder.Services.AddMediatR(opts =>
+        {
+            opts.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
+        });
         var app = builder.Build();
 
         // Configure the HTTP request pipeline.
 
-        //app.UseHttpsRedirection();
+        app.UseHttpsRedirection();
 
-        //app.UseAuthorization();
+        app.UseAuthorization();
 
 
         app.MapControllers();

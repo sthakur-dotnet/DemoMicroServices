@@ -7,16 +7,16 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
-COPY ["DemoMicroServices/DemoMicroServices.csproj", "DemoMicroServices/"]
-RUN dotnet restore "DemoMicroServices/DemoMicroServices.csproj"
+COPY ["InventoryServices/InventoryServices.csproj", "InventoryServices/"]
+RUN dotnet restore "InventoryServices/InventoryServices.csproj"
 COPY . .
-WORKDIR "/src/DemoMicroServices"
-RUN dotnet build "DemoMicroServices.csproj" -c Release -o /app/build
+WORKDIR "/src/InventoryServices"
+RUN dotnet build "InventoryServices.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "DemoMicroServices.csproj" -c Release -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "InventoryServices.csproj" -c Release -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "DemoMicroServices.dll"]
+ENTRYPOINT ["dotnet", "InventoryServices.dll"]

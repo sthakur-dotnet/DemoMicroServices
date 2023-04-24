@@ -22,4 +22,8 @@
     <Compile Remove="Model\RequestModel.cs" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Services" />
+  </ItemGroup>
+
 </Project>
