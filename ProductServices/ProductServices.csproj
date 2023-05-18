@@ -12,8 +12,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="EPPlus" Version="6.2.4" />
+    <PackageReference Include="ExcelPackage" Version="1.0.0" />
     <PackageReference Include="MediatR" Version="12.0.1" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.2" />
+    <PackageReference Include="OfficeOpenXml.Core.ExcelPackage" Version="1.0.0" />
+    <PackageReference Include="PdfSharpCore" Version="1.3.56" />
+    <PackageReference Include="Select.Pdf.NetCore" Version="22.2.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -22,6 +27,19 @@
 
   <ItemGroup>
     <Compile Remove="Models\ProductType.cs" />
+    <Compile Remove="Query\Handler\GetProductByIdCommand\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="Query\Handler\GetProductByIdCommand\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Query\Handler\GetProductByIdCommand\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Query\Handler\GetProductByIdCommand\**" />
   </ItemGroup>
 
 </Project>

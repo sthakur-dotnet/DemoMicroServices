@@ -1,5 +1,6 @@
 using ProductServices.Models;
 using InventoryServices.Model;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace InventoryServices.Controllers;
@@ -10,11 +11,13 @@ public class InventoryController : ControllerBase
 
     private readonly ILogger<InventoryController> _logger;
     private readonly List<Inventory> _inventories;
+    private readonly IMediator _mediator;
 
-    public InventoryController(ILogger<InventoryController> logger,List<Inventory> inventories)
+    public InventoryController(ILogger<InventoryController> logger,List<Inventory> inventories,IMediator mediator)
     {
         _logger = logger;
         _inventories = inventories;
+        _mediator = mediator;
     }
 
     [HttpGet]

@@ -1,4 +1,5 @@
 
+using System.Reflection;
 using InventoryServices.Model;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +12,10 @@ builder.Services.AddSingleton((IServiceProvider arg) => new List<Inventory> { ne
     InventoryCount = 10,
     ProductId = 1,
 } });
+builder.Services.AddMediatR(opts =>
+{
+    opts.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
